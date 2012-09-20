@@ -1,8 +1,8 @@
 source "http://rubygems.org"
 
 gem "data_mapper",       "~> 1.2.0"
-# gem "dm-sqlite-adapter"
-# gem "do_sqlite3"
+gem "dm-sqlite-adapter"
+gem "do_sqlite3"
 
 gem "haml",                  "~> 3.1.6"
 gem "sass",                  "~> 3.1.18"
