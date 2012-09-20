@@ -1,0 +1,9 @@
+source $HOME/.screenrc
+
+screen -t db 0
+stuff "psql integrity\012"
+screen -t srv 1
+stuff "bundle exec rackup\012"
+screen -t vim 2 $EDITOR -c GG
+screen -t zsh 3
+select vim

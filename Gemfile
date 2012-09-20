@@ -1,8 +1,8 @@
 source "http://rubygems.org"
 
 gem "data_mapper",       "~> 1.2.0"
-gem "dm-sqlite-adapter"
-gem "do_sqlite3"
+# gem "dm-sqlite-adapter"
+# gem "do_sqlite3"
 
 gem "haml",                  "~> 3.1.6"
 gem "sass",                  "~> 3.1.18"
@@ -16,11 +16,11 @@ gem "bcat",                  "0.5.2"
 # gem "thin"
 
 # If you want to use Unicorn:
-# gem "unicorn"
+gem "unicorn"
 
 # These are dependencies for the various notifiers. Uncomment as appropriate.
 # = Email
-# gem "pony", "1.1"
+gem "pony", "1.1"
 
 # = SES Email
 # gem 'aws-ses', '0.4.3', :require => 'aws/ses'
@@ -48,8 +48,8 @@ gem "bcat",                  "0.5.2"
 # gem "resque", "1.10.0"
 
 # Uncomment if you're using pg or mysql instead of sqlite
-# gem "pg"
-# gem "dm-postgres-adapter", "~> 1.2.0"
+gem "pg"
+gem "dm-postgres-adapter", "~> 1.2.0"
 # If installing dependencies with rpg:
 # gem "do_postgres", "0.10.2"
 
