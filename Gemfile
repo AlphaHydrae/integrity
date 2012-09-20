@@ -17,6 +17,9 @@ gem "bcat",                  "0.5.2"
 
 # If you want to use Unicorn:
 gem "unicorn"
+gem "capistrano"
+gem "rvm-capistrano"
+gem "rake"
 
 # These are dependencies for the various notifiers. Uncomment as appropriate.
 # = Email
@@ -45,7 +48,7 @@ gem "pony", "1.1"
 # gem "delayed_job_active_record", "0.3.1"
 
 # = Dependency for the :resque builder
-# gem "resque", "1.10.0"
+gem "resque", "1.22.0"
 
 # Uncomment if you're using pg or mysql instead of sqlite
 gem "pg"

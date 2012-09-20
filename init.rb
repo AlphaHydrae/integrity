@@ -28,24 +28,29 @@ require "integrity/notifier/email"
 # = Co-op
 # require "integrity/notifier/coop"
 
+require 'ostruct'
+config_file = File.join File.dirname(__FILE__), 'config', 'config.yml'
+raw_config = YAML::load File.open(config_file, 'r').read
+config = OpenStruct.new raw_config
+
 Integrity.configure do |c|
   # c.database                    = "sqlite3:db/integrity.db"
   # PostgreSQL via the local socket to "integrity" database:
-  c.database                    = "postgres:///integrity"
+  c.database                    = config.database || "postgres:///integrity"
   # PostgreSQL via a more full specification:
   # c.database                  = "postgres://user:pass@host:port/database"
   # Heroku
   # c.database                  = ENV['DATABASE_URL']
-  c.directory                   = "builds"
+  c.directory                   = config.build_directory || "builds"
   # Heroku
   # c.directory                 = File.dirname(__FILE__) + '/tmp/builds'
-  c.base_url                    = ENV['INTEGRITY_BASE_URL'] || "http://ci.example.org"
+  c.base_url                    = config.base_url || "http://ci.example.org"
   # Heroku - Comment out c.log
-  c.log                         = "integrity.log"
-  c.github_token                = ENV['INTEGRITY_GITHUB_TOKEN'] || "SECRET"
+  c.log                         = config.log || "integrity.log"
+  c.github_token                = config.github_token || "SECRET"
   c.build_all                   = false
   c.auto_branch                 = true
   c.trim_branches               = true
-  c.builder                     = :threaded, 5
+  c.builder                     = :resque
   c.project_default_build_count = 10
 end
