@@ -105,6 +105,7 @@ GEM
       data_objects (= 0.10.8)
     extlib (0.9.15)
     fastercsv (1.5.5)
+    god (0.13.1)
     haml (3.1.6)
     highline (1.6.15)
     hpricot (0.8.3)
@@ -208,6 +209,7 @@ DEPENDENCIES
   dm-sweatshop
   do_sqlite3
   extlib (= 0.9.15)
+  god
   haml (~> 3.1.6)
   hpricot (= 0.8.3)
   i18n (= 0.5.0)

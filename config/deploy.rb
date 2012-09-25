@@ -40,6 +40,12 @@ namespace :deploy do
     run "cd #{current_path} && rake db"
   end
 
+  desc "Upload the configuration file."
+  task :config, :roles => :app do
+    config_file = File.join File.dirname(__FILE__), 'config.yml'
+    transfer :up, config_file, "#{current_path}/config/config.yml"
+  end
+
   desc "Create the RVM gemset."
   task :create_gemset, :roles => :app do
     run "#{try_sudo} rvm gemset create #{rvm_gemset}"
@@ -91,3 +97,4 @@ end
 before 'deploy', 'deploy:create_gemset'
 after 'deploy:setup', 'deploy:setup_sockets'
 after 'deploy:update', 'deploy:symlink_sockets'
+after 'deploy:update', 'deploy:config'

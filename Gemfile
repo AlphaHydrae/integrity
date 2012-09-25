@@ -17,9 +17,12 @@ gem "bcat",                  "0.5.2"
 
 # If you want to use Unicorn:
 gem "unicorn"
+
+# Deployment
 gem "capistrano"
 gem "rvm-capistrano"
 gem "rake"
+gem "god"
 
 # These are dependencies for the various notifiers. Uncomment as appropriate.
 # = Email
